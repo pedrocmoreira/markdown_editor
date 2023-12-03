@@ -1,8 +1,6 @@
 import React from 'react';
-import Markdown from 'react-native-markdown-display';
 
-import { Container, Title } from './styles';
-import { StyleSheet } from 'react-native';
+import { MarkdownDisplay } from '../../components/MarkdownDisplay';
 
 const markdownText = `
 # Título Principal
@@ -25,6 +23,18 @@ Este é um parágrafo de exemplo em Markdown. Markdown permite que você escreva
   - Subitem 2.1
   - Subitem 2.2
 
+#### Lista Não Ordenada 2
+- Item 1
+- Item 2
+  - Subitem 2.1
+  - Subitem 2.2
+
+#### Lista Não Ordenada 3 
+- Item 1
+- Item 2
+  - Subitem 2.1
+  - Subitem 2.2
+
 #### Lista Ordenada
 1. Primeiro Item
 2. Segundo Item
@@ -37,23 +47,10 @@ Este é um parágrafo de exemplo em Markdown. Markdown permite que você escreva
 
 ### Citações
 > Esta é uma citação.
-
-### Código
 `;
 
 export function EditorScreen() {
   return (
-    <Container>
-      <Markdown style={markdownStyles}>
-        {markdownText}
-      </Markdown>
-    </Container>
+    <MarkdownDisplay children={markdownText}/>
   );
 }
-
-const markdownStyles = StyleSheet.create({
-  heading1: {
-    fontSize: 40,
-    fontWeight: 'bold'
-  }
-})
